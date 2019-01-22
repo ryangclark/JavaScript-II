@@ -44,7 +44,7 @@ const counterFactory = () => {
 // console.log('Decrement:', counterFactory.decrement);
 // console.log(counterFactory());
 
-const factCount = counterFactory(increment());
-console.log(factCount());
-console.log(factCount());
-console.log(factCount());
+// const factCount = counterFactory(increment());
+// console.log(factCount());
+// console.log(factCount());
+// console.log(factCount());
