@@ -9,20 +9,19 @@ function kingdom(monarch) {
 
 
 // ==== Challenge 2: Create a counter function ====
-const counter = (tally => {
+const counter = () => {
   // Return a function that, when invoked, increments and returns a counter variable.
+  let count = 0;
   return function() {
-    tally++;
-    console.log('Count:', tally);
+    count++;
+    console.log('Count:', count);
   }
-})(0);
-// counter(); // 1
-// counter(); // 2
+};
 
 // Example usage: const newCounter = counter();
-// const newCounter = counter();
-// newCounter(); // 1
-// newCounter(); // 2
+const newCounter = counter();
+newCounter(); // 1
+newCounter(); // 2
 
 /* STRETCH PROBLEM, Do not attempt until you have completed all previous tasks for today's project files */
 
@@ -33,18 +32,29 @@ const counterFactory = () => {
   // `decrement` should decrement the counter variable and return it.
   let count = 0;
   function increment() {
-    return count++;
-  }
-  function decrement() {
-    count = count - 1;
+    count++;
+    console.log('Increment:', count);
     return count;
   }
+  function decrement() {
+    count--;
+    console.log('Decrement:', count);
+    return count;
+  }
+  counterFactory.increment = increment;
+  counterFactory.decrement = decrement;
 };
-// console.log('Increment:', counterFactory.increment);
-// console.log('Decrement:', counterFactory.decrement);
-// console.log(counterFactory());
 
-// const factCount = counterFactory(increment());
-// console.log(factCount());
-// console.log(factCount());
-// console.log(factCount());
+console.log('——— COUNTER FACTORY ———');
+
+counterFactory();
+incrementCount = counterFactory.increment;
+decrementCount = counterFactory.decrement;
+
+incrementCount();
+incrementCount();
+incrementCount();
+
+decrementCount();
+decrementCount();
+decrementCount();
